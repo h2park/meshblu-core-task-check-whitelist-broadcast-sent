@@ -19,7 +19,7 @@ describe 'CheckWhitelist', ->
               uuid: 'green-blue'
               token: 'blue-purple'
             subscriber: 'bright-green'
-            sender: 'dim-green'
+            broadcaster: 'dim-green'
             responseId: 'yellow-green'
         @sut.do job, (error, @newJob) => done error
 
@@ -32,7 +32,7 @@ describe 'CheckWhitelist', ->
       it 'should get have the status of ', ->
         expect(@newJob.metadata.status).to.equal http.STATUS_CODES[204]
 
-    describe 'when called with a valid job without a sender', ->
+    describe 'when called with a valid job without a broadcaster', ->
       beforeEach (done) ->
         @whitelistManager.canGetBroadcastSent.yields null, true
         job =
@@ -45,7 +45,7 @@ describe 'CheckWhitelist', ->
         @sut.do job, (error, @newJob) => done error
 
       it 'should call the whitelistmanager with the correct arguments', ->
-        expect(@whitelistManager.canGetBroadcastSent).to.have.been.calledWith sender: 'green-blue', subscriber: 'bright-green'
+        expect(@whitelistManager.canGetBroadcastSent).to.have.been.calledWith broadcaster: 'green-blue', subscriber: 'bright-green'
 
     describe 'when called with a different valid job', ->
       beforeEach (done) ->
@@ -56,7 +56,7 @@ describe 'CheckWhitelist', ->
               uuid: 'dim-green'
               token: 'blue-lime-green'
             subscriber: 'hot-yellow'
-            sender: 'ugly-yellow'
+            broadcaster: 'ugly-yellow'
             responseId: 'purple-green'
         @sut.do job, (error, @newJob) => done error
 
@@ -78,7 +78,7 @@ describe 'CheckWhitelist', ->
               uuid: 'puke-green'
               token: 'blue-lime-green'
             subscriber: 'super-purple'
-            sender: 'not-so-super-purple'
+            broadcaster: 'not-so-super-purple'
             responseId: 'purple-green'
         @sut.do job, (error, @newJob) => done error
 
@@ -100,7 +100,7 @@ describe 'CheckWhitelist', ->
               uuid: 'puke-green'
               token: 'blue-lime-green'
             subscriber: 'green-bomb'
-            sender: 'green-safe'
+            broadcaster: 'green-safe'
             responseId: 'purple-green'
         @sut.do job, (error, @newJob) => done error
 
