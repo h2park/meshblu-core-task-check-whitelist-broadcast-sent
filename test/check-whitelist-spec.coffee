@@ -18,8 +18,8 @@ describe 'CheckWhitelist', ->
             auth:
               uuid: 'green-blue'
               token: 'blue-purple'
-            to: 'bright-green'
-            from: 'dim-green'
+            toUuid: 'bright-green'
+            fromUuid: 'dim-green'
             responseId: 'yellow-green'
         @sut.do job, (error, @newJob) => done error
 
@@ -40,7 +40,7 @@ describe 'CheckWhitelist', ->
             auth:
               uuid: 'green-blue'
               token: 'blue-purple'
-            to: 'bright-green'
+            toUuid: 'bright-green'
             responseId: 'yellow-green'
         @sut.do job, (error, @newJob) => done error
 
@@ -55,8 +55,8 @@ describe 'CheckWhitelist', ->
             auth:
               uuid: 'dim-green'
               token: 'blue-lime-green'
-            to: 'hot-yellow'
-            from: 'ugly-yellow'
+            toUuid: 'hot-yellow'
+            fromUuid: 'ugly-yellow'
             responseId: 'purple-green'
         @sut.do job, (error, @newJob) => done error
 
@@ -77,8 +77,8 @@ describe 'CheckWhitelist', ->
             auth:
               uuid: 'puke-green'
               token: 'blue-lime-green'
-            to: 'super-purple'
-            from: 'not-so-super-purple'
+            toUuid: 'super-purple'
+            fromUuid: 'not-so-super-purple'
             responseId: 'purple-green'
         @sut.do job, (error, @newJob) => done error
 
@@ -99,8 +99,8 @@ describe 'CheckWhitelist', ->
             auth:
               uuid: 'puke-green'
               token: 'blue-lime-green'
-            to: 'green-bomb'
-            from: 'green-safe'
+            toUuid: 'green-bomb'
+            fromUuid: 'green-safe'
             responseId: 'purple-green'
         @sut.do job, (error, @newJob) => done error
 

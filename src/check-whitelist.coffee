@@ -6,10 +6,10 @@ class CheckWhitelist
     @whitelistManager ?= new WhitelistManager {datastore, uuidAliasResolver}
 
   do: (job, callback) =>
-    {from, to, responseId, auth} = job.metadata
-    from ?= auth.uuid
-    broadcaster = from
-    subscriber = to
+    {fromUuid, toUuid, responseId, auth} = job.metadata
+    fromUuid ?= auth.uuid
+    broadcaster = fromUuid
+    subscriber = toUuid
     @whitelistManager.canGetBroadcastSent {broadcaster, subscriber}, (error, verified) =>
       return @sendResponse responseId, 500, callback if error?
       return @sendResponse responseId, 403, callback unless verified
