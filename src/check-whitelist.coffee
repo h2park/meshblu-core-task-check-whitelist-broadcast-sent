@@ -10,7 +10,7 @@ class CheckWhitelist
     fromUuid ?= auth.uuid
     broadcaster = fromUuid
     subscriber = toUuid
-    @whitelistManager.canGetBroadcastSent {broadcaster, subscriber}, (error, verified) =>
+    @whitelistManager.canSeeBroadcastsSent {broadcaster, subscriber}, (error, verified) =>
       return @sendResponse responseId, 500, callback if error?
       return @sendResponse responseId, 403, callback unless verified
       @sendResponse responseId, 204, callback
