@@ -1,18 +1,18 @@
 http = require 'http'
-CheckWhitelist = require '../'
+CheckBroadcastSentWhitelist = require '../'
 
-describe 'CheckWhitelist', ->
+describe 'CheckBroadcastSentWhitelist', ->
   beforeEach ->
     @whitelistManager =
-      canSeeBroadcastsSent: sinon.stub()
+      checkBroadcastSent: sinon.stub()
 
-    @sut = new CheckWhitelist
+    @sut = new CheckBroadcastSentWhitelist
       whitelistManager: @whitelistManager
 
   describe '->do', ->
     describe 'when called with a valid job', ->
       beforeEach (done) ->
-        @whitelistManager.canSeeBroadcastsSent.yields null, true
+        @whitelistManager.checkBroadcastSent.yields null, true
         job =
           metadata:
             auth:
@@ -34,7 +34,7 @@ describe 'CheckWhitelist', ->
 
     describe 'when called with a valid job without a from', ->
       beforeEach (done) ->
-        @whitelistManager.canSeeBroadcastsSent.yields null, true
+        @whitelistManager.checkBroadcastSent.yields null, true
         job =
           metadata:
             auth:
@@ -45,11 +45,11 @@ describe 'CheckWhitelist', ->
         @sut.do job, (error, @newJob) => done error
 
       it 'should call the whitelistmanager with the correct arguments', ->
-        expect(@whitelistManager.canSeeBroadcastsSent).to.have.been.calledWith broadcaster: 'green-blue', subscriber: 'bright-green'
+        expect(@whitelistManager.checkBroadcastSent).to.have.been.calledWith emitter: 'green-blue', subscriber: 'bright-green'
 
     describe 'when called with a different valid job', ->
       beforeEach (done) ->
-        @whitelistManager.canSeeBroadcastsSent.yields null, true
+        @whitelistManager.checkBroadcastSent.yields null, true
         job =
           metadata:
             auth:
@@ -71,7 +71,7 @@ describe 'CheckWhitelist', ->
 
     describe 'when called with a job that with a device that has an invalid whitelist', ->
       beforeEach (done) ->
-        @whitelistManager.canSeeBroadcastsSent.yields null, false
+        @whitelistManager.checkBroadcastSent.yields null, false
         job =
           metadata:
             auth:
@@ -91,9 +91,9 @@ describe 'CheckWhitelist', ->
       it 'should get have the status of Forbidden', ->
         expect(@newJob.metadata.status).to.equal http.STATUS_CODES[403]
 
-    describe 'when called and the canSeeBroadcastsSent yields an error', ->
+    describe 'when called and the checkBroadcastSent yields an error', ->
       beforeEach (done) ->
-        @whitelistManager.canSeeBroadcastsSent.yields new Error "black-n-black"
+        @whitelistManager.checkBroadcastSent.yields new Error "black-n-black"
         job =
           metadata:
             auth:

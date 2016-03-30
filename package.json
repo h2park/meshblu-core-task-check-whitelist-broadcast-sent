@@ -1,36 +1,45 @@
 {
   "name": "meshblu-core-task-check-broadcast-sent-whitelist",
-  "version": "1.0.9",
-  "description": "",
+  "version": "1.1.0",
+  "description": "Meshblu core task meshblu-core-task-check-broadcast-sent-whitelist",
+  "keywords": [
+    "meshblu",
+    "core",
+    "iot",
+    "task"
+  ],
+  "homepage": "https://github.com/octoblu/meshblu-core-task-check-broadcast-sent-whitelist",
+  "bugs": "https://github.com/octoblu/meshblu-core-task-check-broadcast-sent-whitelist/issues",
+  "author": {
+    "name": "Octoblu",
+    "url": "https://github.com/octoblu"
+  },
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/octoblu/meshblu-core-task-check-broadcast-sent-whitelist.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
   "dependencies": {
+    "coffee-script": "^1.10.0",
+    "lodash": "^4.6.1",
     "meshblu-core-manager-whitelist": "^3.4.0"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
+    "chai": "^3.4.1",
     "coffee-coverage": "^0.7.0",
-    "coffee-script": "^1.10.0",
-    "istanbul": "^0.4.2",
-    "mocha": "^2.4.5",
+    "istanbul": "^0.4.1",
+    "mocha": "^2.3.4",
     "mocha-istanbul": "^0.2.0",
-    "sinon": "^1.17.3",
+    "sinon": "^1.17.2",
     "sinon-chai": "^2.8.0"
   },
-  "scripts": {
-    "test": "istanbul cover _mocha -- -R spec --require coffee-coverage/register-istanbul"
+  "peerDependencies": {},
+  "engines": {
+    "node": ">=5.0.0",
+    "npm": ">=2.10.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/octoblu/meshblu-core-task-check-broadcast-sent-whitelist.git"
-  },
-  "keywords": [
-    "meshblu",
-    "IoT"
-  ],
-  "author": "sqrt@octoblu.com",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/octoblu/meshblu-core-task-check-broadcast-sent-whitelist/issues"
-  },
-  "homepage": "https://github.com/octoblu/meshblu-core-task-check-broadcast-sent-whitelist#readme"
+  "license": "MIT"
 }
