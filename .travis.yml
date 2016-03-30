@@ -5,6 +5,7 @@ deploy:
   provider: npm
   email: serveradmin@octoblu.com
   api_key:
+    secure: fLDfZ02q3wypNus9FHuol1gahS07DUgqWP/rkbm/Y8YLMmvhia0HI0QydrlPPaXpt+4DK44kD8xCQnL0HOWnF+gJGHcL6P77/dAHJzotIfgtdqHpVU6LSwlF8KxnKHuK4YxtbhNbPi401h6WV9NCaCOtXWrqdBQoBI+UhmyBmMbCQrFnuwlvug49+CD+p5TkmfCzJ4sr9da2bOCxtEqFssvLIO2HfNMhA5+DcIOfxsyhkBZ1av/+lihNrj8FkjYeAuk+6T50xrfO5S6npJc5EwupTYS59WQrJSd43xG8t5jn3uwbfBRViFxwRizUoapU7q4UW23rjPKzgbjPZPG/oeOBXs1tAZqPIThY/7FAboWxt9WF9OdSTY3CONGe1r4pE/VoHLdaTalPnWGCRdZuGmslQ7ANuYjjXe5JpfgLKSKYklHQtZFBUSC0WvlSXKd2DDwFgYKKkbSbwC5oon0K7amSpo3XkVrBGk5l7dLe929xsThWxo+AqCR5HUVbW+7QQyIs0blN9oCRqGQMbAb5zMApu5M0DJ5scNebF7u46mP70bLbBdLWTmvpFKRNDAzEulK/zFQUEI40Nez/jTEP+AIIOri8LZoZulKcfXnAuxS4D8T0kD31T13ScyuMnbDRsZnLZ5NqlQmBrWI6UsfPtt5gjXkJrFRDP5dZOF2R/Ws=
   on:
     tags: true
     branches: true
